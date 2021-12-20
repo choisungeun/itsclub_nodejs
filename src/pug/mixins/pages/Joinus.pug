@@ -1,0 +1,82 @@
+mixin Joinus
+  .col-sm-8.col-md-6.col-lg-10.col-xl-8(data-zanim-xs!={
+    delay: 0.5,
+    animation: 'slide-right'
+  } data-zanim-trigger='scroll')
+    h3.display-4.fs-2
+      | Perfect for Startups,
+      br
+      | freelancers &amp; companies.
+    h6.text-danger.mt-3 Specially crafted for the people who care about design.
+
+
+    form.mt-5
+      .row.gy-4.align-items-center.mb-4
+        .col-12
+          label(for='koreanNameInput') 회원 한글명
+          input.form-control.bg-light(type='text', placeholder='한글 이름')
+        .col-12
+          label(for='englishNameInput') 회원 영문명
+          input.form-control.bg-light(type='text', placeholder='영문 이름')        
+        .col-12
+          label(for='englishNameInput') 성별
+          .row.gy-4.align-items-center
+            .col-md-6
+              input#exampleRadios1.form-check-input(type='radio', name='exampleRadios', value='option1', checked='')
+              label.form-check-label(for='man')
+                | 남          
+            .col-md-6
+              input#exampleRadios2.form-check-input(type='radio', name='exampleRadios', value='option2')
+              label.form-check-label(for='woman')
+                | 여
+        .col-12
+          label(for='englishNameInput') 휴대폰 통신사
+          .row.gy-4.align-items-center
+            .col-md-3
+              input#exampleRadios1.form-check-input(type='radio', name='exampleRadios1', value='option1', checked='')
+              label.form-check-label(for='sk')
+                | SK
+            .col-md-3
+              input#exampleRadios2.form-check-input(type='radio', name='exampleRadios1', value='option2')
+              label.form-check-label(for='kt')
+                | KT
+            .col-md-3
+              input#exampleRadios1.form-check-input(type='radio', name='exampleRadios1', value='option3')
+              label.form-check-label(for='lgu')
+                | LGU+
+            .col-md-3
+              input#exampleRadios1.form-check-input(type='radio', name='exampleRadios1', value='option4')
+              label.form-check-label(for='etc')
+                | 알뜰폰         
+        .col-12
+          label(for='englishNameInput') 연락처
+          .row.gy-4.align-items-center
+            .col-md-3
+              input.form-control.bg-light.form-control-sm(type='text')
+            .col-md-1
+              label.form-check-label(for='firstPhone')
+                | -
+            .col-md-3
+              input.form-control.bg-light.form-control-sm(type='text')
+            .col-md-1
+              label.form-check-label(for='secondPhone')
+                | -
+            .col-md-3
+              input.form-control.bg-light.form-control-sm(type='text')
+        .col-12
+          label(for='englishNameInput') 이메일 주소
+          input.form-control.bg-light(type='email', placeholder='Email Address')
+        .col-6
+          input.form-control.bg-light(type='password', placeholder='Password')
+        .col-6
+          input.form-control.bg-light(type='password', placeholder='Confirmation')
+
+      .row.mb-4.align-items-center   
+        .col-auto.d-grid
+          input.btn.btn-dark(type='submit', name='submit', value='Create an Account')
+
+        .col-sm
+          p.fs--1.text-700.mb-0.font-sans-serif.mt-2.mt-lg-0
+            | By signing up, you agree to the
+            a(href='#!').text-black terms and conditions.
+

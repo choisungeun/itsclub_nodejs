@@ -1,6 +1,6 @@
 mixin BicycleHeader
   +Section({
-    image: `${CWD}assets/img/headers/header-bicycle.jpg`,
+    image: `${CWD}assets/img/headers/header-travel1.jpg`,
     className: 'overlay overlay-2',
     youtube: {
       videoId : 'XnE_IG_aEsI',
@@ -9,12 +9,12 @@ mixin BicycleHeader
     }
   }).py-0#bicycleHeader(data-zanim-lg!={delay: 0.6, animation: "zoom-out"} data-zanim-trigger='scroll')
     .row.min-vh-100.align-items-center.py-8
-      .col-lg-7(data-zanim-timeline!={delay: 0.6} data-zanim-trigger='scroll')
-        h1.fs-3.fs-sm-4.fs-xl-5.display-4.text-white.fst-italic.overflow-hidden.text-decoration-underline(data-zanim-xs!={delay: 0.1}) It's Club
+      .col-lg-7(data-zanim-timeline!={delay: 0.6} data-zanim-trigger='scroll')        
+        img(src=`${CWD}assets/img/logo/itsclub-logo.png` alt='' width=500)
         .overflow-hidden
           p.text-white.mb-4.font-sans-serif.fst-italic.fs-2(data-zanim-xs!={delay: 0.2}) 새로운 여행을 떠나요.
         div(data-zanim-xs!={delay: 0.3})
-          a(href='#!').btn.btn-outline-light.mt-4 Learn more        
+          a(href='#!').btn.btn-outline-light.mt-4 회원 가입
 
 mixin BicycleAbout
   +Section.text-center#bicycleAbout
