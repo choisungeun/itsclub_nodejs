@@ -5,8 +5,6 @@
 const docReady = (fn) => {
   // see if DOM is already available
 
-  
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", fn);
   } else {
@@ -15,15 +13,15 @@ const docReady = (fn) => {
 };
 
 const isRTL = () => {
-  return document.querySelector('html').getAttribute('dir') === 'rtl';
-}
+  return document.querySelector("html").getAttribute("dir") === "rtl";
+};
 
 const resize = (fn) => window.addEventListener("resize", fn);
 /*eslint consistent-return: */
 const isIterableArray = (array) => Array.isArray(array) && !!array.length;
 
 const camelize = (str) => {
-  if(str){
+  if (str) {
     const text = str.replace(/[-_\s.]+(.)?/g, (_, c) =>
       c ? c.toUpperCase() : ""
     );
@@ -39,8 +37,6 @@ const getData = (el, data) => {
   }
 };
 
-
-
 /* ----------------------------- Colors function ---------------------------- */
 
 const hexToRgb = (hexValue) => {
@@ -55,10 +51,10 @@ const hexToRgb = (hexValue) => {
   );
   return result
     ? [
-      parseInt(result[1], 16),
-      parseInt(result[2], 16),
-      parseInt(result[3], 16),
-    ]
+        parseInt(result[1], 16),
+        parseInt(result[2], 16),
+        parseInt(result[3], 16),
+      ]
     : null;
 };
 
@@ -152,27 +148,24 @@ const isScrolledIntoView = (el) => {
 };
 
 const isElementIntoView = (el) => {
-  
   const position = el.getBoundingClientRect();
   // checking whether fully visible
-	if(position.top >= 0 && position.bottom <= window.innerHeight) {
-		return true;
-	}
+  if (position.top >= 0 && position.bottom <= window.innerHeight) {
+    return true;
+  }
 
-	// checking for partial visibility
-	if(position.top < window.innerHeight && position.bottom >= 0) {
-		return true;
-	}
-}
-
-
+  // checking for partial visibility
+  if (position.top < window.innerHeight && position.bottom >= 0) {
+    return true;
+  }
+};
 
 const breakpoints = {
   xs: 0,
   sm: 576,
   md: 768,
   lg: 992,
-  xl: 1200
+  xl: 1200,
 };
 
 const getBreakpoint = (el) => {
@@ -181,36 +174,31 @@ const getBreakpoint = (el) => {
   if (classes) {
     breakpoint =
       breakpoints[
-      classes
-        .split(" ")
-        .filter((cls) => cls.includes("navbar-expand-"))
-        .pop()
-        .split("-")
-        .pop()
+        classes
+          .split(" ")
+          .filter((cls) => cls.includes("navbar-expand-"))
+          .pop()
+          .split("-")
+          .pop()
       ];
   }
   return breakpoint;
 };
 
-
 const getCurrentScreenBreakpoint = () => {
- 
-  let currentBreakpoint = '' 
-  if(window.innerWidth >= breakpoints.xl ){
-    currentBreakpoint = 'xl';
+  let currentBreakpoint = "";
+  if (window.innerWidth >= breakpoints.xl) {
+    currentBreakpoint = "xl";
+  } else if (window.innerWidth >= breakpoints.lg) {
+    currentBreakpoint = "lg";
+  } else if (window.innerWidth >= breakpoints.md) {
+    currentBreakpoint = "md";
+  } else {
+    currentBreakpoint = "sm";
   }
-  else if(window.innerWidth >= breakpoints.lg ){
-    currentBreakpoint = 'lg';
-  }
-  else if(window.innerWidth >= breakpoints.md ){
-    currentBreakpoint = 'md';
-  }
-  else{
-    currentBreakpoint = 'sm';
-  }
-  const breakpointStartVal = breakpoints[currentBreakpoint]
-  return {currentBreakpoint, breakpointStartVal};
-}
+  const breakpointStartVal = breakpoints[currentBreakpoint];
+  return { currentBreakpoint, breakpointStartVal };
+};
 
 /* --------------------------------- Cookie --------------------------------- */
 
@@ -266,22 +254,23 @@ const getStoreSpace = (store = localStorage) =>
 const getDates = (startDate, endDate, interval = 1000 * 60 * 60 * 24) => {
   const duration = endDate - startDate;
   const steps = duration / interval;
-  return Array.from({ length: steps + 1 },
-    (v, i) => new Date(startDate.valueOf() + (interval * i))
+  return Array.from(
+    { length: steps + 1 },
+    (v, i) => new Date(startDate.valueOf() + interval * i)
   );
-}
+};
 
 const getPastDates = (duration) => {
   let days;
 
   switch (duration) {
-    case 'week':
+    case "week":
       days = 7;
       break;
-    case 'month':
+    case "month":
       days = 30;
       break;
-    case 'year':
+    case "year":
       days = 365;
       break;
 
@@ -293,12 +282,36 @@ const getPastDates = (duration) => {
   const endDate = date;
   const startDate = new Date(new Date().setDate(date.getDate() - (days - 1)));
   return getDates(startDate, endDate);
-}
+};
 
 /* Get Random Number */
 const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
-}
+};
+
+/* Submit Validator */
+(function validationJoinus() {
+  "use strict";
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll(".needs-validation");
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+})();
 
 const utils = {
   docReady,
@@ -330,7 +343,7 @@ const utils = {
   getCurrentScreenBreakpoint,
   breakpoints,
   isElementIntoView,
-  isRTL
+  isRTL,
 };
 
 export default utils;

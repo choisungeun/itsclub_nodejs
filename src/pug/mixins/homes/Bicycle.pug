@@ -10,11 +10,11 @@ mixin BicycleHeader
   }).py-0#bicycleHeader(data-zanim-lg!={delay: 0.6, animation: "zoom-out"} data-zanim-trigger='scroll')
     .row.min-vh-100.align-items-center.py-8
       .col-lg-7(data-zanim-timeline!={delay: 0.6} data-zanim-trigger='scroll')        
-        img(src=`${CWD}assets/img/logo/itsclub-logo.png` alt='' width=500)
+        img(src=`${CWD}assets/img/logo/itsclub-logo.png` alt='' width=300)
         .overflow-hidden
           p.text-white.mb-4.font-sans-serif.fst-italic.fs-2(data-zanim-xs!={delay: 0.2}) 새로운 여행을 떠나요.
         div(data-zanim-xs!={delay: 0.3})
-          a(href='#!').btn.btn-outline-light.mt-4 회원 가입
+          a(href='../../joinus.html').btn.btn-outline-light.mt-4 회원 가입
 
 mixin BicycleAbout
   +Section.text-center#bicycleAbout
